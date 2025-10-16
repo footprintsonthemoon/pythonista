@@ -212,7 +212,7 @@ def poem():
         "sondern immer ss."
     )
     user_msg = (
-        "Schreibe ein zum Denken anregendes Gedicht mit GENAU zwei Saetzen, "
+        "Schreibe ein zum Denken anregendes Gedicht passend zur Jahreszeit mit GENAU zwei Saetzen, "
         "jeder Satz hoechstens 16 Woerter. "
         "Verwende KEINE Ziffern. Stattdessen nutze GENAU EINMAL die Platzhalter [TIME], [DATE], [TEMP] "
         "fuer Uhrzeit, Datum und Temperatur. "

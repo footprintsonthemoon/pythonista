@@ -93,9 +93,9 @@ curl http://localhost:5123/location
 Response:
 ```json
 {
-  "lat": 47.14115199857449,
-  "lon": 7.366385619250336,
-  "elevation_meters": 420
+  "lat": 43.14113453857449,
+  "lon": 8.366385619250336,
+  "elevation_meters": 110
 }
 ```
 
@@ -106,7 +106,7 @@ curl http://localhost:5123/poem
 Example response:
 ```json
 {
-  "poem": "Um 18:04 am 16.10.2025 lacht der Himmel. Der Wind spielt bei 12.3 mit den Baeumen."
+  "poem": "ie Blätter fallen, der Wind flüstert Geschichten um 23:23 am 16.10.2025. Wolken verhüllen die Sonne bei 8.7 Grad, doch die Farben leuchten."
 }
 ```
 
