@@ -106,7 +106,7 @@ curl http://localhost:5123/poem
 Example response:
 ```json
 {
-  "poem": "ie Blätter fallen, der Wind flüstert Geschichten um 23:23 am 16.10.2025. Wolken verhüllen die Sonne bei 8.7 Grad, doch die Farben leuchten."
+  "poem": "Die Blätter fallen, der Wind flüstert Geschichten um 23:23 am 16.10.2025. Wolken verhüllen die Sonne bei 8.7 Grad, doch die Farben leuchten."
 }
 ```
 
