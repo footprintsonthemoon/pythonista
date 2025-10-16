@@ -22,8 +22,30 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 # ---------- Standort / Beobachter ----------
-lat = "47.14115199857449"
-lon = "7.366385619250336"
+DEFAULT_LAT = "47.3769"    # Zürich
+DEFAULT_LON = "8.5417"
+DEFAULT_ELEV = 408         # ca. Zürich in Metern
+
+def _get_env_coord(var_name, default):
+    try:
+        val = os.environ.get(var_name, str(default))
+        float(val)  # prüfen ob Zahl parsbar ist
+        return val
+    except Exception:
+        logger.warning(f"Invalid value for {var_name}, using default {default}")
+        return str(default)
+
+def _get_env_int(var_name, default):
+    try:
+        val = int(os.environ.get(var_name, default))
+        return val
+    except Exception:
+        logger.warning(f"Invalid value for {var_name}, using default {default}")
+        return default
+
+lat = _get_env_coord("LAT", DEFAULT_LAT)
+lon = _get_env_coord("LON", DEFAULT_LON)
+elevation = _get_env_int("ELEVATION", DEFAULT_ELEV)
 
 observer = ephem.Observer()
 observer.lat = lat
@@ -323,6 +345,17 @@ def moon():
     except Exception as e:
         logger.exception("Fehler bei Mondberechnung")
         return jsonify({"error": "Moon computation failure", "details": str(e)}), 500
+
+################ LOCATION ################
+@app.route("/location")
+def location():
+    logger.info("Route /location aufgerufen")
+    return jsonify({
+        "lat": float(lat),
+        "lon": float(lon),
+        "elevation_meters": elevation
+    })
+
 
 # ---------- Main (lokales Debugging) ----------
 if __name__ == "__main__":
